@@ -8,3 +8,9 @@ This is the repository for the [Pando Token](https://pandobrowser.com/) smart co
 </div>
 
 Pando is a web 3.0 browser available for android. Pando is a web 3.0 browser that has free VPN, mining rewards capabilities. Pando can reward it’s users with financial rewards. Pando is planning to work with IPFS compatible dapps in the future. Acquire Pando coin today and become part of the new revolution.
+
+## Contracts
+
+Please see the [contracts/](contracts) directory.
+
+The contracts written in [Solidity](https://solidity.readthedocs.io/en/develop/) and tested using [Truffle](http://truffleframework.com/) and [ganache](https://github.com/trufflesuite/ganache).
