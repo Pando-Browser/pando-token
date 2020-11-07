@@ -37,10 +37,9 @@ contract BasicToken is ERC20Basic {
 
 	function transfer(address _to, uint256 _value) public returns (bool) {
 		require(_to != address(0) && _value > 0 &&_value <= balances[msg.sender]);
-        balances[msg.sender] = balances[msg.sender].sub(_value);
+		balances[msg.sender] = balances[msg.sender].sub(_value);
 		balances[_to] = balances[_to].add(_value);
 		emit Transfer(msg.sender, _to, _value);
-		
 		return true;
 	}
 	
@@ -126,7 +125,7 @@ contract Ownable {
 		require(admin[Admin] != false && owner != Admin);
 		admin[Admin] = false;
 	}
-  
+
 }
 
 contract Pausable is Ownable {
@@ -289,7 +288,7 @@ contract PANDOCOIN is BurnableToken,MintToken, DetailedERC20, ERC20Token,Pausabl
 	mapping(address => uint) public locker;
 	
 	string public constant symbol = "PANDO";
- 	string public constant name = "PANDO COIN";
+	string public constant name = "PANDO COIN";
 	uint8 public constant decimals = 18;
 	
 	uint256 public constant TOTAL_SUPPLY = 20*(10**8)*(10**uint256(decimals));
@@ -346,15 +345,15 @@ contract PANDOCOIN is BurnableToken,MintToken, DetailedERC20, ERC20Token,Pausabl
 		emit Transfer(_from, owner, _amount);
 		emit Recall(_from, _amount);
 		
-    }
+	}
 		
 	function transferList(address[] _recipients, uint256[] _balances) public onlyOwnerOrAdmin{
 		require(_recipients.length == _balances.length);
 		
 		for (uint i=0; i < _recipients.length; i++) {
-		    balances[msg.sender] = balances[msg.sender].sub(_balances[i]);
+			balances[msg.sender] = balances[msg.sender].sub(_balances[i]);
 			balances[_recipients[i]] = balances[_recipients[i]].add(_balances[i]);
-    		emit Transfer(msg.sender,_recipients[i],_balances[i]);
+			emit Transfer(msg.sender,_recipients[i],_balances[i]);
 		}
 	}
 
@@ -363,7 +362,7 @@ contract PANDOCOIN is BurnableToken,MintToken, DetailedERC20, ERC20Token,Pausabl
 		
 		for (uint i=0; i < _recipients.length; i++) {
 			locker[_recipients[i]] = _balances[i];
-		    emit LockerChanged(_recipients[i], _balances[i]);
+			emit LockerChanged(_recipients[i], _balances[i]);
 		}
 	}
 	
